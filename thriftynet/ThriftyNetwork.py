@@ -11,6 +11,7 @@ class ThriftyNetwork(torch.nn.Module):
         filters: int = 128,
         iterations: int = 20,
         kernel_size: int = 3,
+        normalization: Type[torch.nn.Module] | str = "batch",
         activation: Type[torch.nn.Module] = torch.nn.ReLU,
     ):
         super().__init__()
@@ -19,6 +20,7 @@ class ThriftyNetwork(torch.nn.Module):
             iterations=iterations,
             activation=activation,
             kernel_size=kernel_size,
+            normalization=normalization,
         )
         self.head = torch.nn.Linear(filters, num_classes)
 

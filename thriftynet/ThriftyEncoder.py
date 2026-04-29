@@ -1,5 +1,6 @@
 import torch
 from typing import Type
+from typing import Literal
 
 
 class ThriftyEncoder(torch.nn.Module):
@@ -10,10 +11,15 @@ class ThriftyEncoder(torch.nn.Module):
         iterations: int,
         kernel_size: int,
         activation: Type[torch.nn.Module] = torch.nn.ReLU,
+        normalization: (
+            Type[torch.nn.Module] | Literal["batch", "layer", "group"]
+        ) = "batch",
     ):
         super().__init__()
         self.filters = filters
         self.iterations = iterations
+        self.__initialize_normalizations(normalization=normalization)
+
         self.conv = torch.nn.Conv2d(
             filters,
             filters,
@@ -21,10 +27,8 @@ class ThriftyEncoder(torch.nn.Module):
             padding=kernel_size // 2,
             bias=False,
         )
+
         self.activation = activation()
-        self.normalizations = torch.nn.ModuleList(
-            [torch.nn.BatchNorm2d(filters) for _ in range(iterations)]
-        )
         alpha = torch.zeros(iterations, 2)
         alpha[:, 0] = 0.1
         alpha[:, 1] = 0.9
@@ -36,6 +40,24 @@ class ThriftyEncoder(torch.nn.Module):
         ]
         self.pool = torch.nn.MaxPool2d(kernel_size=2, stride=2)
         self.global_pool = torch.nn.AdaptiveMaxPool2d((1, 1))
+
+    def __initialize_normalizations(
+        self, normalization: Type[torch.nn.Module] | Literal["batch", "layer", "group"]
+    ):
+        normalization_map = {
+            "group": lambda: torch.nn.GroupNorm(self.filters // 16, self.filters),
+            "layer": lambda: torch.nn.GroupNorm(1, self.filters),
+            "batch": lambda: torch.nn.BatchNorm2d(self.filters),
+        }
+
+        if isinstance(normalization, torch.nn.Module):
+            normalization_fn = lambda: normalization(self.filters)
+        else:
+            normalization_fn = normalization_map[normalization]
+
+        self.normalizations = torch.nn.ModuleList(
+            [normalization_fn() for _ in range(self.iterations)]
+        )
 
     def forward(self, x: torch.Tensor) -> torch.Tensor:
         if self.filters > x.size(1):
