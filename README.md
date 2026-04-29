@@ -20,9 +20,9 @@ In complement, normalization, non-linearities, downsamplings and shortcut ensure
 
 ## Results
 
-<p float="left">
-  <img src="./images/cifar.png" width="45%" />
-  <img src="./images/svhn.png" width="45%" />
+<p align="center">
+  <img src="image1.png" width="45%" />
+  <img src="image2.png" width="45%" />
 </p>
 
 ## Usage
