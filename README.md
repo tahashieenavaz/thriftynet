@@ -56,8 +56,13 @@ In complement, normalization, non-linearities, downsamplings and shortcut ensure
 ## Results
 
 <p align="center">
-  <img src="./images/cifar.png" width="45%" />
-  <img src="./images/svhn.png" width="45%" />
+  <img src="./images/cifar.png" width="49%" />
+  <img src="./images/svhn.png" width="49%" />
+</p>
+
+<p align="center">
+  <img src="./images/pooling.png" width="49%" />
+  <img src="./images/downsampling.png" width="49%" />
 </p>
 
 
