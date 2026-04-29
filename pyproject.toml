@@ -8,7 +8,7 @@ version = "0.0.01"
 authors = [
   { name="Taha Shieenavaz", email="tahashieenavaz@gmail.com" },
 ]
-description = "PyTorch and JAX implementation of Thrifty Net by Guillaume Coiffier, Ghouthi Boukli Hacene, and Vincent Gripon."
+description = "PyTorch implementation of ThriftyNet by Guillaume Coiffier, Ghouthi Boukli Hacene, and Vincent Gripon."
 readme = "README.md"
 requires-python = ">=3.9"
 classifiers = [
