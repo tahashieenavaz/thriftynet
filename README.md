@@ -18,6 +18,13 @@ In an effort to use every parameter of a network at its maximum, we propose a ne
 
 In complement, normalization, non-linearities, downsamplings and shortcut ensure sufficient expressivity of the model. ThriftyNet achieves competitive performance on a tiny parameters budget, exceeding 91% accuracy on CIFAR-10 with less than 40K parameters in total, and 74.3% on CIFAR-100 with less than 600K parameters.
 
+## Results
+
+<p float="left">
+  <img src="./images/cifar.png" width="45%" />
+  <img src="./images/svhn.png" width="45%" />
+</p>
+
 ## Usage
 
 You can use the encoder only:
