@@ -20,6 +20,8 @@ In complement, normalization, non-linearities, downsamplings and shortcut ensure
 
 ## Usage
 
+You can use the encoder only:
+
 ```py
 from thriftynet import ThriftyEncoder
 
@@ -31,8 +33,24 @@ encoder = ThriftyEncoder(
 )
 images = torch.randn(1, 3, 224, 224)
 features = encoder(images)
-print(features.size(1))
-# prints 128
+print(features.size(1)) # prints 128
+```
+
+Alternatively initialize a network with a classification head: 
+
+```py
+from thriftynet import ThriftyNetwork
+
+encoder = ThriftyNetwork(
+    100,
+    filters=128,
+    iterations=20,
+    kernel_size=3,
+    normalization="layer"
+)
+images = torch.randn(1, 3, 224, 224)
+features = encoder(images)
+print(features.size(1)) # prints 100
 ```
 
 ## Citation
