@@ -23,7 +23,12 @@ In complement, normalization, non-linearities, downsamplings and shortcut ensure
 ```py
 from thriftynet import ThriftyEncoder
 
-encoder = ThriftyEncoder(filters=128, iterations=20, kernel_size=3, normalization="layer")
+encoder = ThriftyEncoder(
+    filters=128,
+    iterations=20,
+    kernel_size=3,
+    normalization="layer"
+)
 images = torch.randn(1, 3, 224, 224)
 features = encoder(images)
 print(features.size(1))
