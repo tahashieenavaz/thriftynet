@@ -50,3 +50,10 @@ class ThriftyEncoder(torch.nn.Module):
 
         x = self.global_pool(x)
         return x.flatten(1)
+
+
+if __name__ == "__main__":
+    encoder = ThriftyEncoder(filters=128, iterations=20, kernel_size=3)
+    images = torch.randn(1, 3, 84, 84)
+    features = encoder(images)
+    assert features.size(1) == 128
