@@ -50,7 +50,7 @@ class ThriftyEncoder(torch.nn.Module):
             "batch": lambda: torch.nn.BatchNorm2d(self.filters),
         }
 
-        if isinstance(normalization, torch.nn.Module):
+        if isinstance(normalization, type):
             normalization_fn = lambda: normalization(self.filters)
         else:
             normalization_fn = normalization_map[normalization]
