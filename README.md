@@ -69,6 +69,16 @@ In complement, normalization, non-linearities, downsamplings and shortcut ensure
 ## Citation
 
 ```bibtex
+@software{thriftynets2026implementation,
+    author = {Taha Shieenavaz},
+    title = {ThriftyNets: Convolutional Neural Networks with Tiny Parameter Budget (Unofficial Implementation)},
+    year = {2026},
+    url = {https://github.com/tahashieenavaz/thriftynet},
+    note = {Unofficial implementation of the paper arXiv:2007.10106 by Coiffier et al.}
+}
+```
+
+```bibtex
 @misc{2007.10106,
     Author = {Guillaume Coiffier and Ghouthi Boukli Hacene and Vincent Gripon},
     Title = {ThriftyNets : Convolutional Neural Networks with Tiny Parameter Budget},
