@@ -1,7 +1,7 @@
 # Thrifty Networks
 
 <div align="center">
-    <img src="./images/diagram.png" />
+    <img src="https://raw.githubusercontent.com/tahashieenavaz/thriftynet/main/images/diagram.png" />
 </div>
 
 ## Installation
@@ -56,13 +56,13 @@ In complement, normalization, non-linearities, downsamplings and shortcut ensure
 ## Results
 
 <p align="center">
-  <img src="./images/cifar.png" width="49%" />
-  <img src="./images/svhn.png" width="49%" />
+  <img src="https://raw.githubusercontent.com/tahashieenavaz/thriftynet/main/images/cifar.png" width="49%" />
+  <img src="https://raw.githubusercontent.com/tahashieenavaz/thriftynet/main/images/svhn.png" width="49%" />
 </p>
 
 <p align="center">
-  <img src="./images/pooling.png" width="49%" />
-  <img src="./images/downsampling.png" width="49%" />
+  <img src="https://raw.githubusercontent.com/tahashieenavaz/thriftynet/main/images/pooling.png" width="49%" />
+  <img src="https://raw.githubusercontent.com/tahashieenavaz/thriftynet/main/images/downsampling.png" width="49%" />
 </p>
 
 
