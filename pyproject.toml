@@ -1,0 +1,32 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel", "setuptools_scm"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "thriftynet"
+version = "0.0.01"
+authors = [
+  { name="Taha Shieenavaz", email="tahashieenavaz@gmail.com" },
+]
+description = "PyTorch and JAX implementation of Thrifty Net by Guillaume Coiffier, Ghouthi Boukli Hacene, and Vincent Gripon."
+readme = "README.md"
+requires-python = ">=3.9"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+]
+dependencies = ["jax", "flax"]
+keywords = ["image classification", "resnet", "deep learning"]
+license = { file = "LICENSE" }
+urls = { Homepage="https://github.com/tahashieenavaz/thriftynet", Repository="https://github.com/tahashieenavaz/thriftynet", Documentation="https://github.com/tahashieenavaz/thriftynet#readme" }
+
+[tool.setuptools.packages.find]
+where = ["."]
+exclude = ["tests*", "docs*"]
+
+[tool.setuptools.package-data]
+thriftynet = ["*.md", "*.txt", "*.png"]
